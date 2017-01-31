@@ -76,6 +76,8 @@ namespace Kudu.Services.Web.App_Start
             HttpApplication.RegisterModule(typeof(NinjectHttpModule));
             HttpApplication.RegisterModule(typeof(TraceModule));
             _bootstrapper.Initialize(CreateKernel);
+
+            FileSystemHelpers.CopyDirectoryRecursive($"{VfsSpecialFolders.SystemDrivePath}\\Program Files (x86)\\Shun\\stateJson", $"{VfsSpecialFolders.LocalSiteRootPath}\\ProgramData\\Microsoft\\VisualStudio\\Packages\\_Instances");
         }
 
         /// <summary>
